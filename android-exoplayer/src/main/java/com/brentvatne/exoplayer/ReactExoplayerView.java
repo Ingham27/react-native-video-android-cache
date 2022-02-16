@@ -96,8 +96,8 @@ class ReactExoplayerView extends FrameLayout implements
     private static final int SHOW_PROGRESS = 1;
     private static final int REPORT_BANDWIDTH = 1;
 
-    private static final long MAX_CACHE_SIZE = 500 * 1024 * 1024; // 500MB
-    private static final long MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB 
+    private static final long MAX_CACHE_SIZE = 800 * 1024 * 1024; // 500MB
+    private static final long MAX_FILE_SIZE = 50 * 1024 * 1024; // 10MB 
     
     static {
         DEFAULT_COOKIE_MANAGER = new CookieManager();
