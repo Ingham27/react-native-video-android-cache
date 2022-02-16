@@ -96,6 +96,9 @@ class ReactExoplayerView extends FrameLayout implements
     private static final int SHOW_PROGRESS = 1;
     private static final int REPORT_BANDWIDTH = 1;
 
+    private static final long MAX_CACHE_SIZE = 500 * 1024 * 1024; // 500MB
+    private static final long MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB 
+    
     static {
         DEFAULT_COOKIE_MANAGER = new CookieManager();
         DEFAULT_COOKIE_MANAGER.setCookiePolicy(CookiePolicy.ACCEPT_ORIGINAL_SERVER);
@@ -434,10 +437,10 @@ class ReactExoplayerView extends FrameLayout implements
             case C.TYPE_OTHER:
                 Log.d("TYPE_OTHER",uri.toString());
                 Log.d("TYPE_OTHER2",mediaDataSourceFactory.toString());
-                Log.d("TYPE_OTHER3",  new AndroidCacheDataSourceFactory(themedReactContext, 300 * 1024 * 1024, 5 * 1024 * 1024).toString());
+                Log.d("TYPE_OTHER3",  new AndroidCacheDataSourceFactory(themedReactContext, MAX_CACHE_SIZE, MAX_FILE_SIZE).toString());
                 //300 is cache size you can define it as you want
                 return new ExtractorMediaSource(uri,
-                        new AndroidCacheDataSourceFactory(themedReactContext, 300 * 1024 * 1024, 5 * 1024 * 1024), new DefaultExtractorsFactory(), mainHandler, null);
+                        new AndroidCacheDataSourceFactory(themedReactContext, MAX_CACHE_SIZE, MAX_FILE_SIZE), new DefaultExtractorsFactory(), mainHandler, null);
               //  return new ExtractorMediaSource(uri, mediaDataSourceFactory, new DefaultExtractorsFactory(),
                 //        mainHandler, null);
             default: {
