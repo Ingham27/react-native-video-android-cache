@@ -40,7 +40,6 @@
     "dependencies": {
         "keymirror": "^0.1.1",
         "prop-types": "^15.5.10",
-        "react-native-video": "git+https://github.com/Ingham27/react-native-video-android-cache",
         "shaka-player": "^2.4.4"
     },
     "scripts": {
